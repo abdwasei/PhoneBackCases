@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Custom Coordinate Neomorphic styling and coloring matching Geometric Balance theme */
+:root {
+  --neo-bg: #F0F2F5;
+  --neo-bg-darker: #e0e6ed;
+  --neo-light: #ffffff;
+  --neo-shadow-dark: #d1d9e6;
+  --neo-shadow-light: rgba(255, 255, 255, 1.0);
+  
+  --neo-orange: #FF6B00;
+  --neo-blue: #38bdf8;
+  --neo-orange-shadow: rgba(255, 107, 0, 0.4);
+  --neo-blue-shadow: rgba(56, 189, 248, 0.4);
+}
+
+body {
+  background-color: var(--neo-bg);
+  color: #3f4e65;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Neomorphic Extruded Outward Card */
+.neo-out {
+  background: var(--neo-bg);
+  box-shadow: 
+    8px 8px 16px var(--neo-shadow-dark),
+    -8px -8px 16px var(--neo-light);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.neo-out-sm {
+  background: var(--neo-bg);
+  box-shadow: 
+    4px 4px 8px var(--neo-shadow-dark),
+    -4px -4px 8px var(--neo-light);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.neo-out-lg {
+  background: var(--neo-bg);
+  box-shadow: 
+    12px 12px 24px var(--neo-shadow-dark),
+    -12px -12px 24px var(--neo-light);
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+/* Neomorphic Inset / Carved Inward */
+.neo-in {
+  background: var(--neo-bg-darker);
+  box-shadow: 
+    inset 4px 4px 8px rgba(163, 177, 198, 0.75),
+    inset -4px -4px 8px rgba(255, 255, 255, 1.0);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.neo-in-deep {
+  background: #dfe5ef;
+  box-shadow: 
+    inset 6px 6px 12px rgba(160, 175, 198, 0.85),
+    inset -6px -6px 12px rgba(255, 255, 255, 1.0);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Interactive Standard Buttons */
+.neo-btn {
+  background: var(--neo-bg);
+  box-shadow: 
+    5px 5px 10px var(--neo-shadow-dark),
+    -5px -5px 10px var(--neo-light);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.neo-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    7px 7px 14px var(--neo-shadow-dark),
+    -7px -7px 14px var(--neo-light);
+}
+
+.neo-btn:active, .neo-btn-active {
+  transform: translateY(1px);
+  box-shadow: 
+    inset 3px 3px 6px rgba(163, 177, 198, 0.7),
+    inset -3px -3px 6px rgba(255, 255, 255, 1.0);
+  background: var(--neo-bg-darker);
+}
+
+/* Sky Blue Neomorphic Buttons */
+.neo-btn-blue {
+  background: var(--neo-blue);
+  box-shadow: 
+    4px 4px 8px rgba(56, 189, 248, 0.45),
+    -4px -4px 8px rgba(255, 255, 255, 0.8);
+  color: white;
+  border-radius: 14px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.neo-btn-blue:hover {
+  transform: translateY(-2px);
+  background: #0ea5e9;
+  box-shadow: 
+    6px 6px 12px rgba(14, 165, 233, 0.5),
+    -6px -6px 12px rgba(255, 255, 255, 0.8);
+}
+
+.neo-btn-blue:active {
+  transform: translateY(1px);
+  background: #0284c7;
+  box-shadow: 
+    inset 3px 3px 6px rgba(0, 0, 0, 0.2),
+    inset -3px -3px 6px rgba(255, 255, 255, 0.2);
+}
+
+/* Orange Neomorphic Buttons */
+.neo-btn-orange {
+  background: var(--neo-orange);
+  box-shadow: 
+    4px 4px 8px rgba(249, 115, 22, 0.45),
+    -4px -4px 8px rgba(255, 255, 255, 0.8);
+  color: white;
+  border-radius: 14px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.neo-btn-orange:hover {
+  transform: translateY(-2px);
+  background: #ea580c;
+  box-shadow: 
+    6px 6px 12px rgba(234, 88, 12, 0.5),
+    -6px -6px 12px rgba(255, 255, 255, 0.8);
+}
+
+.neo-btn-orange:active {
+  transform: translateY(1px);
+  background: #c2410c;
+  box-shadow: 
+    inset 3px 3px 6px rgba(0, 0, 0, 0.2),
+    inset -3px -3px 6px rgba(255, 255, 255, 0.2);
+}
+
+/* Deep Pressed Wrappers for Controls */
+.neo-input-wrap {
+  background: var(--neo-bg-darker);
+  box-shadow: 
+    inset 4px 4px 8px rgba(163, 177, 198, 0.7),
+    inset -4px -4px 8px rgba(255, 255, 255, 1.0);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Custom Scrollbars to blend with design */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--neo-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(165, 179, 201, 0.7);
+  border-radius: 6px;
+  border: 2px solid var(--neo-bg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(140, 155, 180, 0.9);
+}

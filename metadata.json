@@ -1,0 +1,6 @@
+{
+  "name": "Neomorphic Phone Cover Shop",
+  "description": "An interactive e-commerce platform for phone covers styled in a modern 3D neomorphic aesthetic with search, real-time filtering, customizable case creator, and dynamic cart.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

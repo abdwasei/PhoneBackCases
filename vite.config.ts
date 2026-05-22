@@ -5,7 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: process.env.GITHUB_PAGES ? '/CaseWEB/' : '/',
+    base: process.env.GITHUB_PAGES ? '/PhoneBackCases/' : '/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {

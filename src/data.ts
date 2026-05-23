@@ -119,7 +119,8 @@ export const INITIAL_USER: UserProfile = {
   postalCode: '94107',
   phone: '+1 (555) 302-3901',
   points: 480,
-  avatarSeed: 'sarah'
+  avatarSeed: 'sarah',
+  isLoggedIn: true
 };
 
 export const INITIAL_ORDERS: Order[] = [

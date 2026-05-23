@@ -83,14 +83,18 @@ export default function Header({
           <button
             onClick={onOpenProfile}
             className="neo-btn px-4 py-2.5 rounded-2xl text-left hover:scale-[1.02] active:scale-95 transition-all text-slate-700 flex items-center gap-3"
-            title="View User Account Parameters"
+            title={user.isLoggedIn ? "View User Account Parameters" : "Sign In to Your Account"}
           >
-            <div className="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center border border-orange-200">
-              <UserCheck className="w-4 h-4 text-orange-500" />
+            <div className={`w-8 h-8 rounded-full flex items-center justify-center border ${user.isLoggedIn ? 'bg-orange-100 border-orange-200 animate-pulse' : 'bg-sky-100 border-sky-200'}`}>
+              <UserCheck className={`w-4 h-4 ${user.isLoggedIn ? 'text-orange-500' : 'text-sky-500'}`} />
             </div>
             <div>
-              <p className="text-[10px] uppercase font-mono tracking-wider text-slate-400 font-bold">User Account</p>
-              <p className="text-xs font-bold leading-none mt-0.5 truncate max-w-[110px]">{user.name.split(' ')[0]}</p>
+              <p className="text-[10px] uppercase font-mono tracking-wider text-slate-400 font-bold">
+                {user.isLoggedIn ? 'User Account' : 'Guest Portal'}
+              </p>
+              <p className="text-xs font-bold leading-none mt-0.5 truncate max-w-[110px]">
+                {user.isLoggedIn ? user.name.split(' ')[0] : 'Sign In / Sign Up'}
+              </p>
             </div>
           </button>
 

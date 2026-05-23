@@ -55,6 +55,7 @@ export interface UserProfile {
   phone: string;
   points: number;
   avatarSeed: string;
+  isLoggedIn?: boolean;
 }
 
 export interface FilterState {

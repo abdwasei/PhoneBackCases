@@ -65,9 +65,19 @@ export default function App() {
   };
 
   const handleUpdateUser = (updatedUser: UserProfile) => {
+    const isLoggingOut = user.isLoggedIn && !updatedUser.isLoggedIn;
+    const isLoggingIn = !user.isLoggedIn && updatedUser.isLoggedIn;
+    
     setUser(updatedUser);
     localStorage.setItem('neo_user', JSON.stringify(updatedUser));
-    addToast(`Account credentials synchronized for ${updatedUser.name.split(' ')[0]}`, 'success');
+    
+    if (isLoggingOut) {
+      addToast('Secure session terminated. Signed out successfully.', 'info');
+    } else if (isLoggingIn) {
+      addToast(`Session established! Welcome, ${updatedUser.name.split(' ')[0]}`, 'success');
+    } else {
+      addToast('Account profile details updated successfully.', 'success');
+    }
   };
 
   const handleReturnOrder = (orderId: string, itemIds: string[], reason: string) => {

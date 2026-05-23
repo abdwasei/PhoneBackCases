@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react';
-import { ShoppingCart, Menu, Search, MapPin, ClipboardList, UserCheck, ChevronDown } from 'lucide-react';
+import { ShoppingCart, Menu, Search, MapPin, ClipboardList, UserCheck, ChevronDown, Check, Save } from 'lucide-react';
 import NeomorphicCard from './NeomorphicCard';
 import { FilterState, UserProfile } from '../types';
 
@@ -29,17 +29,29 @@ export default function Header({
 }: HeaderProps) {
   const [searchValue, setSearchValue] = useState(filters.search);
   const [activeBrandDropdown, setActiveBrandDropdown] = useState(false);
-  const [selectedLocation, setSelectedLocation] = useState('San Francisco, CA');
   const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
 
-  const locationsList = [
-    'San Francisco, CA',
-    'Silicon Valley, CA',
-    'Austin, Texas',
-    'Seattle, WA',
-    'New York, NY',
-    'London, UK'
-  ];
+  // Manual Location persistence
+  const [town, setTown] = useState(() => localStorage.getItem('neo_loc_town') || 'San Francisco');
+  const [district, setDistrict] = useState(() => localStorage.getItem('neo_loc_district') || 'San Francisco County');
+  const [stateName, setStateName] = useState(() => localStorage.getItem('neo_loc_state') || 'California');
+  const [pinCode, setPinCode] = useState(() => localStorage.getItem('neo_loc_pincode') || '94107');
+
+  // Intermediate form states
+  const [inputTown, setInputTown] = useState(town);
+  const [inputDistrict, setInputDistrict] = useState(district);
+  const [inputStateName, setInputStateName] = useState(stateName);
+  const [inputPinCode, setInputPinCode] = useState(pinCode);
+
+  const handleToggleLocationModal = () => {
+    if (!isLocationModalOpen) {
+      setInputTown(town);
+      setInputDistrict(district);
+      setInputStateName(stateName);
+      setInputPinCode(pinCode);
+    }
+    setIsLocationModalOpen(!isLocationModalOpen);
+  };
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -59,8 +71,20 @@ export default function Header({
     setActiveBrandDropdown(false);
   };
 
-  const changeLocation = (loc: string) => {
-    setSelectedLocation(loc);
+  const handleApplyLocation = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!inputTown || !inputDistrict || !inputStateName || !inputPinCode) return;
+    
+    setTown(inputTown);
+    setDistrict(inputDistrict);
+    setStateName(inputStateName);
+    setPinCode(inputPinCode);
+    
+    localStorage.setItem('neo_loc_town', inputTown);
+    localStorage.setItem('neo_loc_district', inputDistrict);
+    localStorage.setItem('neo_loc_state', inputStateName);
+    localStorage.setItem('neo_loc_pincode', inputPinCode);
+    
     setIsLocationModalOpen(false);
   };
 
@@ -101,33 +125,109 @@ export default function Header({
           {/* Geolocated Location box */}
           <div className="relative">
             <button
-              onClick={() => setIsLocationModalOpen(!isLocationModalOpen)}
+              onClick={handleToggleLocationModal}
               className="neo-btn px-4 py-2.5 rounded-2xl text-left hover:scale-[1.02] active:scale-95 transition-all text-slate-700 flex items-center gap-2.5"
             >
               <MapPin className="w-4.5 h-4.5 text-sky-500 animate-bounce" />
               <div>
                 <p className="text-[10px] uppercase font-mono tracking-wider text-slate-400 font-bold">Location</p>
-                <p className="text-xs font-bold leading-none mt-0.5 max-w-[115px] truncate flex items-center gap-1">
-                  <span>{selectedLocation.split(',')[0]}</span>
-                  <ChevronDown className="w-3 h-3 text-slate-400" />
+                <p className="text-xs font-bold leading-none mt-0.5 max-w-[125px] truncate flex items-center gap-1.5">
+                  <span>{town}</span>
+                  <span className="text-[9px] font-mono font-semibold text-slate-400">({pinCode})</span>
+                  <ChevronDown className="w-3 h-3 text-slate-400 shrink-0" />
                 </p>
               </div>
             </button>
 
             {/* Float selection locations popup */}
             {isLocationModalOpen && (
-              <div className="absolute top-14 left-0 w-48 z-40 bg-[#F0F2F5] neo-out p-2 flex flex-col gap-1 rounded-xl">
-                <span className="text-[9px] font-mono p-1 text-slate-400 font-bold tracking-widest uppercase">Target Hubs</span>
-                {locationsList.map((loc) => (
-                  <button
-                    key={loc}
-                    onClick={() => changeLocation(loc)}
-                    className="w-full text-left py-1.5 px-2.5 text-xs text-slate-600 rounded-lg hover:bg-slate-200 transition-colors"
-                  >
-                    {loc}
-                  </button>
-                ))}
-              </div>
+              <form 
+                onSubmit={handleApplyLocation}
+                className="absolute top-14 left-0 w-72 md:w-80 z-40 bg-[#F0F2F5] neo-out p-4 flex flex-col gap-3 rounded-2xl shadow-xl border border-white/20"
+              >
+                <div className="flex items-center justify-between pb-1.5 border-b border-slate-200/50">
+                  <span className="text-[10px] font-mono text-slate-400 font-bold tracking-widest uppercase">
+                    Manual Delivery Hub
+                  </span>
+                  <MapPin className="w-3.5 h-3.5 text-sky-500" />
+                </div>
+
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="flex flex-col gap-1">
+                    <label className="text-[9px] font-semibold text-slate-500 px-1 font-mono uppercase tracking-wider">
+                      Town / Village
+                    </label>
+                    <div className="neo-input-wrap px-2 py-0.5 flex items-center">
+                      <input 
+                        type="text" 
+                        placeholder="e.g. Indiranagar"
+                        value={inputTown} 
+                        onChange={(e) => setInputTown(e.target.value)}
+                        className="w-full bg-transparent text-xs text-slate-700 outline-none py-0.5 h-7 font-sans"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-1">
+                    <label className="text-[9px] font-semibold text-slate-500 px-1 font-mono uppercase tracking-wider">
+                      District
+                    </label>
+                    <div className="neo-input-wrap px-2 py-0.5 flex items-center">
+                      <input 
+                        type="text" 
+                        placeholder="e.g. Bengaluru"
+                        value={inputDistrict} 
+                        onChange={(e) => setInputDistrict(e.target.value)}
+                        className="w-full bg-transparent text-xs text-slate-700 outline-none py-0.5 h-7 font-sans"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="flex flex-col gap-1">
+                    <label className="text-[9px] font-semibold text-slate-500 px-1 font-mono uppercase tracking-wider">
+                      State
+                    </label>
+                    <div className="neo-input-wrap px-2 py-0.5 flex items-center">
+                      <input 
+                        type="text" 
+                        placeholder="e.g. Karnataka"
+                        value={inputStateName} 
+                        onChange={(e) => setInputStateName(e.target.value)}
+                        className="w-full bg-transparent text-xs text-slate-700 outline-none py-0.5 h-7 font-sans"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-1">
+                    <label className="text-[9px] font-semibold text-slate-500 px-1 font-mono uppercase tracking-wider">
+                      PIN / ZIP Code
+                    </label>
+                    <div className="neo-input-wrap px-2 py-0.5 flex items-center">
+                      <input 
+                        type="text" 
+                        placeholder="e.g. 560038"
+                        value={inputPinCode} 
+                        onChange={(e) => setInputPinCode(e.target.value)}
+                        className="w-full bg-transparent text-xs text-slate-700 outline-none py-0.5 h-7 font-mono tracking-wider"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  className="neo-btn-blue w-full py-2.5 px-4 text-xs font-mono font-bold uppercase tracking-wider h-10 flex items-center justify-center gap-1.5 mt-2"
+                >
+                  <Save className="w-4 h-4" />
+                  <span>Update Location</span>
+                </button>
+              </form>
             )}
           </div>
         </div>

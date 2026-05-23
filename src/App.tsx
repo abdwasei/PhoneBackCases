@@ -338,8 +338,16 @@ export default function App() {
                       </div>
 
                       {/* Cover Vector Image */}
-                      <div className="py-4 transform duration-300 group-hover:scale-105">
-                        <PhoneRender imageType={product.imageType} size="md" />
+                      <div className="py-4 transform duration-300 group-hover:scale-105 flex items-center justify-center">
+                        {product.imageUrl ? (
+                          <img 
+                            src={`${import.meta.env.BASE_URL}images/${product.imageUrl}`}
+                            alt={product.title}
+                            className="w-44 h-72 object-contain rounded-3xl drop-shadow-[5px_10px_15px_rgba(0,0,0,0.18)]"
+                          />
+                        ) : (
+                          <PhoneRender imageType={product.imageType} size="md" />
+                        )}
                       </div>
 
                       {/* Meta information details */}
@@ -420,7 +428,15 @@ export default function App() {
           <NeomorphicCard className="relative w-full max-w-xl max-h-[92vh] overflow-y-auto p-6 z-10 flex flex-col md:flex-row gap-6 bg-[#F0F2F5]">
             {/* Micro cover image preview left */}
             <div className="flex items-center justify-center bg-slate-100 rounded-2xl p-4 border border-white/20 shrink-0">
-              <PhoneRender imageType={selectedProduct.imageType} size="md" />
+              {selectedProduct.imageUrl ? (
+                <img 
+                  src={`${import.meta.env.BASE_URL}images/${selectedProduct.imageUrl}`}
+                  alt={selectedProduct.title}
+                  className="w-44 h-72 object-contain rounded-3xl drop-shadow-[5px_10px_15px_rgba(0,0,0,0.18)]"
+                />
+              ) : (
+                <PhoneRender imageType={selectedProduct.imageType} size="md" />
+              )}
             </div>
 
             {/* Info contents right */}

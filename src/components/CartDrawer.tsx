@@ -158,11 +158,19 @@ export default function CartDrawer({
                     
                     {/* Tiny Case Render representation */}
                     <div className="neo-in p-1 rounded-xl bg-slate-100 flex items-center justify-center">
-                      <PhoneRender 
-                        imageType={item.product.imageType} 
-                        customConfig={item.product.customConfig} 
-                        size="sm" 
-                      />
+                      {item.product.imageUrl ? (
+                        <img 
+                          src={`${import.meta.env.BASE_URL}images/${item.product.imageUrl}`}
+                          alt={item.product.title}
+                          className="w-16 h-24 object-contain rounded-xl"
+                        />
+                      ) : (
+                        <PhoneRender 
+                          imageType={item.product.imageType} 
+                          customConfig={item.product.customConfig} 
+                          size="sm" 
+                        />
+                      )}
                     </div>
 
                     {/* Meta details right */}

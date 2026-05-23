@@ -12,6 +12,7 @@ export interface Product {
   material: string;   // e.g., "Silicone", "Clear Acrylic", "Leather", "Flexi-Tough"
   color: string;      // e.g., "Sky Blue", "Clear", "Abstract", "Orange", "Brown", "Paisley", "Navy"
   imageType: 'silicone-blue' | 'clear' | 'abstract' | 'leather-orange' | 'leather-brown' | 'paisley' | 'navy' | 'custom';
+  imageUrl?: string;
   description: string;
   rating: number;
   reviewsCount: number;

@@ -62,7 +62,7 @@ export default function Customizer({ onAddCustomToCart }: CustomizerProps) {
     const customProduct: Product = {
       id: `custom-${Date.now()}`,
       title: `${baseModel} - Customized Design`,
-      price: 29.99,
+      price: 2499,
       brand: baseModel.includes('iPhone') ? 'Apple' : baseModel.includes('Galaxy') ? 'Samsung' : 'Google',
       model: baseModel,
       material: material,
@@ -102,7 +102,7 @@ export default function Customizer({ onAddCustomToCart }: CustomizerProps) {
 
           <div className="mt-4 text-center">
             <p className="text-xs font-mono text-slate-400 uppercase tracking-widest">
-              Price: <span className="font-sans font-semibold text-orange-500 text-sm">$29.99</span>
+              Price: <span className="font-sans font-semibold text-orange-500 text-sm">₹2,499</span>
             </p>
           </div>
         </div>
@@ -235,7 +235,7 @@ export default function Customizer({ onAddCustomToCart }: CustomizerProps) {
             }`}
           >
             <ShoppingBag className="w-5 h-5" />
-            {isAdded ? 'Custom Masterpiece Added!' : 'Add Custom Cover to My Cart - $29.99'}
+            {isAdded ? 'Custom Masterpiece Added!' : 'Add Custom Cover to My Cart - ₹2,499'}
           </button>
         </div>
       </div>

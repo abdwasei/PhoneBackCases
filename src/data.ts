@@ -9,7 +9,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: '1',
     title: 'Silicone Case - Sky Blue',
-    price: 19.00,
+    price: 1599,
     brand: 'Apple',
     model: 'iPhone 15',
     material: 'Silicone',
@@ -23,7 +23,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: '2',
     title: 'A55 Clear Case',
-    price: 30.00,
+    price: 2499,
     brand: 'Samsung',
     model: 'Galaxy A55',
     material: 'Clear Acrylic',
@@ -37,7 +37,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: '3',
     title: 'Abstract Art Case',
-    price: 34.00,
+    price: 2799,
     brand: 'Apple',
     model: 'iPhone 15 Pro',
     material: 'Flexi-Tough',
@@ -51,7 +51,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: '4',
     title: 'Leather 15 Case',
-    price: 29.00,
+    price: 2399,
     brand: 'Apple',
     model: 'iPhone 15',
     material: 'Leather',
@@ -64,7 +64,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: '5',
     title: 'Leathene Coovers',
-    price: 30.00,
+    price: 2499,
     brand: 'Samsung',
     model: 'Galaxy S24',
     material: 'Leather',
@@ -77,7 +77,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: '6',
     title: 'iPhone 15 Case',
-    price: 72.00,
+    price: 5999,
     brand: 'Apple',
     model: 'iPhone 15 Pro',
     material: 'Flexi-Tough',
@@ -91,7 +91,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: '7',
     title: 'Deep Navy Flex',
-    price: 25.00,
+    price: 1999,
     brand: 'Google',
     model: 'Pixel 8 Pro',
     material: 'Silicone',
@@ -133,7 +133,7 @@ export const INITIAL_ORDERS: Order[] = [
         selectedModel: 'iPhone 15'
       }
     ],
-    total: 48.00,
+    total: 3998,
     status: 'Delivered',
     trackingNumber: 'TRK-90212048'
   },
@@ -148,7 +148,7 @@ export const INITIAL_ORDERS: Order[] = [
         selectedModel: 'iPhone 15 Pro'
       }
     ],
-    total: 34.00,
+    total: 2799,
     status: 'Returned',
     trackingNumber: 'TRK-10948529'
   }

@@ -96,7 +96,7 @@ export default function ReturnsOrdersModal({
                       }`}>
                         {order.status}
                       </span>
-                      <p className="text-[10px] text-slate-400 mt-0.5">${order.total.toFixed(2)} Total</p>
+                      <p className="text-[10px] text-slate-400 mt-0.5">₹${order.total.toFixed(0)} Total</p>
                     </div>
                   </div>
 
@@ -185,7 +185,7 @@ export default function ReturnsOrdersModal({
             
             <h3 className="text-lg font-bold text-slate-800">Return Processed Successfully!</h3>
             <p className="text-xs text-slate-500 mt-2 max-w-xs">
-              Your refund of <span className="font-semibold text-orange-600">${selectedOrder?.total.toFixed(2)}</span> has been queued. Present the digital scan coupon below at any dropoff point.
+              Your refund of <span className="font-semibold text-orange-600">₹${selectedOrder?.total.toFixed(0)}</span> has been queued. Present the digital scan coupon below at any dropoff point.
             </p>
 
             <NeomorphicCard className="p-4 my-6 flex flex-col items-center justify-center bg-white border border-slate-200" depth="sm">

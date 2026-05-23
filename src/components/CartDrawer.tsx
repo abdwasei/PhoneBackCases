@@ -115,7 +115,7 @@ export default function CartDrawer({
               </div>
               <div className="border-t border-slate-200 pt-2 flex items-center justify-between text-sm font-semibold">
                 <span>Grand Total Paid</span>
-                <span className="text-emerald-600">${total.toFixed(2)}</span>
+                <span className="text-emerald-600">₹{total.toFixed(2)}</span>
               </div>
             </NeomorphicCard>
 
@@ -132,7 +132,7 @@ export default function CartDrawer({
             {cartItems.length > 0 && (
               <div className="p-4 bg-white/25 border-b border-slate-200/50">
                 <div className="flex justify-between items-center text-xs font-medium text-slate-600 mb-1">
-                  <span>{remainingForFreeShipping > 0 ? `Add $${remainingForFreeShipping.toFixed(2)} more for Free Shipping` : '🤩 You got Free Standard Shipping!'}</span>
+                  <span>{remainingForFreeShipping > 0 ? `Add ₹${remainingForFreeShipping.toFixed(2)} more for Free Shipping` : '🤩 You got Free Standard Shipping!'}</span>
                   <span>{Math.round(freeShippingProgress)}%</span>
                 </div>
                 <div className="w-full h-2 bg-slate-200 rounded-full overflow-hidden neo-in">
@@ -181,7 +181,7 @@ export default function CartDrawer({
                       
                       <div className="flex items-center justify-between mt-2.5">
                         <span className="text-sm font-semibold text-orange-600">
-                          ${(item.product.price * item.quantity).toFixed(2)}
+                          ₹{(item.product.price * item.quantity).toFixed(2)}
                         </span>
                         
                         {/* Compact Plus Minus Controls */}
@@ -240,27 +240,27 @@ export default function CartDrawer({
                 <div className="flex flex-col gap-1.5 text-xs text-slate-500 font-mono">
                   <div className="flex justify-between">
                     <span>Subtotal</span>
-                    <span className="font-sans font-semibold text-slate-700">${subtotal.toFixed(2)}</span>
+                    <span className="font-sans font-semibold text-slate-700">₹{subtotal.toFixed(2)}</span>
                   </div>
                   {promoDiscount > 0 && (
                     <div className="flex justify-between text-emerald-600 font-bold">
                       <span>Promo (15% off)</span>
-                      <span>-${promoDiscount.toFixed(2)}</span>
+                      <span>-₹{promoDiscount.toFixed(2)}</span>
                     </div>
                   )}
                   <div className="flex justify-between">
                     <span>Tax (8.25%)</span>
-                    <span className="font-sans font-semibold text-slate-700">${tax.toFixed(2)}</span>
+                    <span className="font-sans font-semibold text-slate-700">₹{tax.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Shipping</span>
                     <span className="font-sans font-semibold text-slate-700">
-                      {shipping === 0 ? <span className="text-emerald-600 font-bold">FREE</span> : `$${shipping.toFixed(2)}`}
+                      {shipping === 0 ? <span className="text-emerald-600 font-bold">FREE</span> : `₹${shipping.toFixed(2)}`}
                     </span>
                   </div>
                   <div className="border-t border-slate-200/80 pt-2 flex justify-between text-base font-bold text-slate-800">
                     <span className="font-sans font-bold">Order Total</span>
-                    <span className="font-sans font-bold text-orange-600">${total.toFixed(2)}</span>
+                    <span className="font-sans font-bold text-orange-600">₹{total.toFixed(2)}</span>
                   </div>
                 </div>
 

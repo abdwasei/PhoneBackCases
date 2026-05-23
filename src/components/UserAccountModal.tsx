@@ -102,7 +102,7 @@ export default function UserAccountModal({
               <Gift className="w-4 h-4 text-orange-500" />
             </div>
             <div className="mt-2">
-              <span className="text-xl font-bold text-slate-800">$15.00</span>
+              <span className="text-xl font-bold text-slate-800">₹1,250</span>
               <span className="text-[10px] text-slate-400 block font-mono">Gift voucher index balances</span>
             </div>
             <div className="text-[10px] font-mono mt-1 text-emerald-600 font-semibold bg-emerald-50 py-1 px-2 rounded self-start">

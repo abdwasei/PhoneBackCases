@@ -37,7 +37,7 @@ export default function App() {
     model: '',
     material: '',
     color: '',
-    priceRange: [0, 100]
+    priceRange: [0, 10000]
   });
 
   // Selected Product Details for quick select modal
@@ -157,7 +157,7 @@ export default function App() {
     // Clear cart
     syncCart([]);
 
-    // Reward points additions (e.g. 10 points per dollar spent!)
+    // Reward points additions (e.g. 10 points per ₹100 spent!)
     const pointsAccrued = Math.round(finalTotal * 10);
     const nextUser = {
       ...user,
@@ -175,7 +175,7 @@ export default function App() {
       model: '',
       material: '',
       color: '',
-      priceRange: [0, 100]
+      priceRange: [0, 10000]
     });
   };
 
@@ -358,7 +358,7 @@ export default function App() {
                         {/* Price and Cart checkout interactive triggers */}
                         <div className="flex items-center justify-between mt-3">
                           <span className="text-base font-bold text-orange-500 font-mono">
-                            ${product.price.toFixed(2)}
+                            ₹{product.price.toFixed(2)}
                           </span>
 
                           {/* Quick Sky-Blue Cart click trigger button (replicating the image icon) */}
@@ -430,7 +430,7 @@ export default function App() {
                   {selectedProduct.brand} • {selectedProduct.material}
                 </span>
                 <h2 className="text-lg font-bold text-slate-800 mt-1">{selectedProduct.title}</h2>
-                <span className="text-xl font-black text-orange-500 font-mono block mt-1">${selectedProduct.price.toFixed(2)}</span>
+                <span className="text-xl font-black text-orange-500 font-mono block mt-1">₹{selectedProduct.price.toFixed(2)}</span>
               </div>
 
               <p className="text-xs text-slate-500 leading-relaxed">

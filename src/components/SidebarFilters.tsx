@@ -212,7 +212,66 @@ export default function SidebarFilters({ filters, onChange, onReset }: SidebarFi
         </div>
       </NeomorphicCard>
 
-      {/* 5. COLOR SCHEME SWATCH GRID */}
+      {/* 5. PRICE RANGE FILTER (INR) */}
+      <NeomorphicCard className="p-4 flex flex-col gap-3">
+        <div className="flex items-center justify-between">
+          <span className="text-slate-700 font-semibold text-sm">Price Range</span>
+          <span className="font-mono text-xs text-sky-500 font-bold bg-sky-50 px-2 py-0.5 rounded">
+            ₹{filters.priceRange[0].toLocaleString('en-IN')} – ₹{filters.priceRange[1].toLocaleString('en-IN')}
+          </span>
+        </div>
+
+        {/* Min price slider */}
+        <div className="flex flex-col gap-1">
+          <span className="text-[10px] text-slate-400 font-mono">Min Price</span>
+          <div className="neo-input-wrap p-2.5 flex items-center">
+            <input
+              type="range"
+              min="0"
+              max="10000"
+              step="100"
+              value={filters.priceRange[0]}
+              onChange={(e) => {
+                const newMin = parseInt(e.target.value);
+                onChange({
+                  ...filters,
+                  priceRange: [Math.min(newMin, filters.priceRange[1]), filters.priceRange[1]]
+                });
+              }}
+              className="w-full accent-orange-500 h-2 bg-slate-200 rounded-lg cursor-pointer appearance-none"
+            />
+          </div>
+        </div>
+
+        {/* Max price slider */}
+        <div className="flex flex-col gap-1">
+          <span className="text-[10px] text-slate-400 font-mono">Max Price</span>
+          <div className="neo-input-wrap p-2.5 flex items-center">
+            <input
+              type="range"
+              min="0"
+              max="10000"
+              step="100"
+              value={filters.priceRange[1]}
+              onChange={(e) => {
+                const newMax = parseInt(e.target.value);
+                onChange({
+                  ...filters,
+                  priceRange: [filters.priceRange[0], Math.max(newMax, filters.priceRange[0])]
+                });
+              }}
+              className="w-full accent-orange-500 h-2 bg-slate-200 rounded-lg cursor-pointer appearance-none"
+            />
+          </div>
+        </div>
+
+        <div className="flex justify-between text-[10px] text-slate-400 font-mono">
+          <span>₹0</span>
+          <span>₹10,000</span>
+        </div>
+      </NeomorphicCard>
+
+      {/* 6. COLOR SCHEME SWATCH GRID */}
       <NeomorphicCard className="p-4 flex flex-col gap-3">
         <div className="flex items-center gap-2 text-slate-700 font-semibold text-sm">
           <Palette className="w-4 h-4 text-sky-500" />

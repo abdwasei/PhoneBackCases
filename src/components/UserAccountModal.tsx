@@ -538,22 +538,22 @@ export default function UserAccountModal({
             </div>
 
             {/* Custom Neomorphic Tab Selector */}
-            <div className="neo-input-wrap p-1 flex justify-between gap-1 w-full h-12">
+            <div className="neo-input-wrap p-1 flex justify-between gap-1.5 w-full h-12 rounded-full">
               <button
                 onClick={() => setActiveTab('social')}
-                className={`flex-1 text-[10px] font-mono font-bold uppercase tracking-wider rounded-xl transition-all ${activeTab === 'social' ? 'bg-[#F0F2F5] text-sky-500 shadow-sm border border-white/45 neo-out-sm font-black' : 'text-slate-500 hover:text-slate-700'}`}
+                className={`flex-1 text-[10px] font-mono font-bold uppercase tracking-wider rounded-full transition-all duration-300 ${activeTab === 'social' ? 'bg-sky-500 text-white shadow-[0_5px_10px_rgba(56,189,248,0.4),inset_0_2px_4px_rgba(255,255,255,0.45),inset_0_-2px_4px_rgba(0,0,0,0.15)] font-black' : 'text-slate-500 hover:text-slate-700 font-bold'}`}
               >
                 Direct Social
               </button>
               <button
                 onClick={() => setActiveTab('email')}
-                className={`flex-1 text-[10px] font-mono font-bold uppercase tracking-wider rounded-xl transition-all ${activeTab === 'email' ? 'bg-[#F0F2F5] text-sky-500 shadow-sm border border-white/45 neo-out-sm font-black' : 'text-slate-500 hover:text-slate-700'}`}
+                className={`flex-1 text-[10px] font-mono font-bold uppercase tracking-wider rounded-full transition-all duration-300 ${activeTab === 'email' ? 'bg-sky-500 text-white shadow-[0_5px_10px_rgba(56,189,248,0.4),inset_0_2px_4px_rgba(255,255,255,0.45),inset_0_-2px_4px_rgba(0,0,0,0.15)] font-black' : 'text-slate-500 hover:text-slate-700 font-bold'}`}
               >
                 Email Address
               </button>
               <button
                 onClick={() => setActiveTab('phone')}
-                className={`flex-1 text-[10px] font-mono font-bold uppercase tracking-wider rounded-xl transition-all ${activeTab === 'phone' ? 'bg-[#F0F2F5] text-sky-500 shadow-sm border border-white/45 neo-out-sm font-black' : 'text-slate-500 hover:text-slate-700'}`}
+                className={`flex-1 text-[10px] font-mono font-bold uppercase tracking-wider rounded-full transition-all duration-300 ${activeTab === 'phone' ? 'bg-sky-500 text-white shadow-[0_5px_10px_rgba(56,189,248,0.4),inset_0_2px_4px_rgba(255,255,255,0.45),inset_0_-2px_4px_rgba(0,0,0,0.15)] font-black' : 'text-slate-500 hover:text-slate-700 font-bold'}`}
               >
                 Mobile Phone
               </button>
@@ -603,19 +603,19 @@ export default function UserAccountModal({
             {/* TABS CONTENT: 2. EMAIL ADDRESS */}
             {activeTab === 'email' && (
               <form onSubmit={handleEmailAuthSubmit} className="flex flex-col gap-4 py-1">
-                {/* Switch between Login and Signup */}
-                <div className="neo-input-wrap flex p-1 justify-between gap-1 w-full h-10 mb-1">
+                 {/* Switch between Login and Signup */}
+                <div className="neo-input-wrap flex p-1 justify-between gap-1.5 w-full h-11 rounded-full mb-1">
                   <button
                     type="button"
                     onClick={() => setEmailMode('login')}
-                    className={`flex-1 text-[9px] font-mono font-bold uppercase rounded-lg transition-all ${emailMode === 'login' ? 'bg-[#F0F2F5] text-slate-700 shadow-sm font-black' : 'text-slate-400 hover:text-slate-500'}`}
+                    className={`flex-1 text-[9px] font-mono font-bold uppercase rounded-full transition-all duration-300 ${emailMode === 'login' ? 'bg-orange-500 text-white shadow-[0_5px_10px_rgba(249,115,22,0.4),inset_0_2px_4px_rgba(255,255,255,0.45),inset_0_-2px_4px_rgba(0,0,0,0.15)] font-black' : 'text-slate-400 hover:text-slate-500 font-bold'}`}
                   >
                     Login Session
                   </button>
                   <button
                     type="button"
                     onClick={() => setEmailMode('signup')}
-                    className={`flex-1 text-[9px] font-mono font-bold uppercase rounded-lg transition-all ${emailMode === 'signup' ? 'bg-[#F0F2F5] text-slate-700 shadow-sm font-black' : 'text-slate-400 hover:text-slate-500'}`}
+                    className={`flex-1 text-[9px] font-mono font-bold uppercase rounded-full transition-all duration-300 ${emailMode === 'signup' ? 'bg-orange-500 text-white shadow-[0_5px_10px_rgba(249,115,22,0.4),inset_0_2px_4px_rgba(255,255,255,0.45),inset_0_-2px_4px_rgba(0,0,0,0.15)] font-black' : 'text-slate-400 hover:text-slate-500 font-bold'}`}
                   >
                     Create Account
                   </button>

@@ -33,28 +33,34 @@ body {
 .neo-out {
   background: var(--neo-bg);
   box-shadow: 
-    6px 6px 12px var(--neo-shadow-dark),
-    -5px -5px 10px rgba(255, 255, 255, 0.85);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.65);
+    8px 8px 20px var(--neo-shadow-dark),
+    -8px -8px 20px rgba(255, 255, 255, 0.95),
+    inset 3px 3px 6px rgba(255, 255, 255, 0.8),
+    inset -3px -3px 6px rgba(165, 180, 203, 0.15);
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 .neo-out-sm {
   background: var(--neo-bg);
   box-shadow: 
-    3px 3px 6px var(--neo-shadow-dark),
-    -3px -3px 5px rgba(255, 255, 255, 0.85);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.55);
+    4px 4px 10px var(--neo-shadow-dark),
+    -4px -4px 10px rgba(255, 255, 255, 0.95),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.8),
+    inset -2px -2px 4px rgba(165, 180, 203, 0.15);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.75);
 }
 
 .neo-out-lg {
   background: var(--neo-bg);
   box-shadow: 
-    10px 10px 20px var(--neo-shadow-dark),
-    -8px -8px 16px rgba(255, 255, 255, 0.8);
-  border-radius: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.7);
+    12px 12px 28px var(--neo-shadow-dark),
+    -12px -12px 28px rgba(255, 255, 255, 0.95),
+    inset 4px 4px 10px rgba(255, 255, 255, 0.85),
+    inset -4px -4px 10px rgba(165, 180, 203, 0.15);
+  border-radius: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
 }
 
 /* Neomorphic Inset / Carved Inward */
@@ -63,7 +69,7 @@ body {
   box-shadow: 
     inset 3px 3px 6px rgba(163, 177, 198, 0.75),
     inset -3px -3px 5px rgba(255, 255, 255, 0.85);
-  border-radius: 14px;
+  border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
@@ -72,7 +78,7 @@ body {
   box-shadow: 
     inset 5px 5px 10px rgba(160, 175, 198, 0.85),
     inset -4px -4px 8px rgba(255, 255, 255, 0.8);
-  border-radius: 16px;
+  border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -80,10 +86,12 @@ body {
 .neo-btn {
   background: var(--neo-bg);
   box-shadow: 
-    4px 4px 8px var(--neo-shadow-dark),
-    -3px -3px 6px rgba(255, 255, 255, 0.85);
-  border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.55);
+    5px 5px 12px var(--neo-shadow-dark),
+    -4px -4px 10px rgba(255, 255, 255, 0.95),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.8),
+    inset -2px -2px 4px rgba(165, 180, 203, 0.15);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.75);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-flex;
   align-items: center;
@@ -95,15 +103,17 @@ body {
 .neo-btn:hover {
   transform: translateY(-2px);
   box-shadow: 
-    6px 6px 12px var(--neo-shadow-dark),
-    -5px -5px 10px rgba(255, 255, 255, 0.9);
+    7px 7px 16px var(--neo-shadow-dark),
+    -6px -6px 14px rgba(255, 255, 255, 0.95),
+    inset 3px 3px 6px rgba(255, 255, 255, 0.85),
+    inset -3px -3px 6px rgba(165, 180, 203, 0.15);
 }
 
 .neo-btn:active, .neo-btn-active {
   transform: translateY(1px);
   box-shadow: 
-    inset 3px 3px 6px rgba(163, 177, 198, 0.75),
-    inset -2px -2px 4px rgba(255, 255, 255, 0.85);
+    inset 4px 4px 8px rgba(163, 177, 198, 0.75),
+    inset -3px -3px 6px rgba(255, 255, 255, 0.85);
   background: var(--neo-bg-darker);
 }
 
@@ -111,56 +121,60 @@ body {
 .neo-btn-blue {
   background: var(--neo-blue);
   box-shadow: 
-    4px 4px 8px rgba(56, 189, 248, 0.45),
-    -4px -4px 8px rgba(255, 255, 255, 0.8);
+    0px 6px 12px rgba(56, 189, 248, 0.45),
+    inset 0px 3px 5px rgba(255, 255, 255, 0.5),
+    inset 0px -3px 5px rgba(0, 0, 0, 0.18);
   color: white;
-  border-radius: 14px;
+  border-radius: 9999px;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .neo-btn-blue:hover {
   transform: translateY(-2px);
   background: #0ea5e9;
   box-shadow: 
-    6px 6px 12px rgba(14, 165, 233, 0.5),
-    -6px -6px 12px rgba(255, 255, 255, 0.8);
+    0px 8px 16px rgba(14, 165, 233, 0.5),
+    inset 0px 4px 6px rgba(255, 255, 255, 0.55),
+    inset 0px -4px 6px rgba(0, 0, 0, 0.18);
 }
 
 .neo-btn-blue:active {
   transform: translateY(1px);
   background: #0284c7;
   box-shadow: 
-    inset 3px 3px 6px rgba(0, 0, 0, 0.2),
-    inset -3px -3px 6px rgba(255, 255, 255, 0.2);
+    inset 3px 3px 6px rgba(0, 0, 0, 0.25),
+    inset -3px -3px 6px rgba(255, 255, 255, 0.25);
 }
 
 /* Orange Neomorphic Buttons */
 .neo-btn-orange {
   background: var(--neo-orange);
   box-shadow: 
-    4px 4px 8px rgba(249, 115, 22, 0.45),
-    -4px -4px 8px rgba(255, 255, 255, 0.8);
+    0px 6px 12px rgba(249, 115, 22, 0.45),
+    inset 0px 3px 5px rgba(255, 255, 255, 0.5),
+    inset 0px -3px 5px rgba(0, 0, 0, 0.18);
   color: white;
-  border-radius: 14px;
+  border-radius: 9999px;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .neo-btn-orange:hover {
   transform: translateY(-2px);
   background: #ea580c;
   box-shadow: 
-    6px 6px 12px rgba(234, 88, 12, 0.5),
-    -6px -6px 12px rgba(255, 255, 255, 0.8);
+    0px 8px 16px rgba(234, 88, 12, 0.5),
+    inset 0px 4px 6px rgba(255, 255, 255, 0.55),
+    inset 0px -4px 6px rgba(0, 0, 0, 0.18);
 }
 
 .neo-btn-orange:active {
   transform: translateY(1px);
   background: #c2410c;
   box-shadow: 
-    inset 3px 3px 6px rgba(0, 0, 0, 0.2),
-    inset -3px -3px 6px rgba(255, 255, 255, 0.2);
+    inset 3px 3px 6px rgba(0, 0, 0, 0.25),
+    inset -3px -3px 6px rgba(255, 255, 255, 0.25);
 }
 
 /* Deep Pressed Wrappers for Controls */

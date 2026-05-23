@@ -254,13 +254,13 @@ export default function App() {
         />
 
         {/* ==================== WORKSPACE MODE TAB SWITCHER ==================== */}
-        <div className="flex items-center justify-between mt-3 bg-slate-200/50 p-1.5 rounded-2xl neo-in max-w-sm">
+        <div className="flex items-center justify-between mt-3 bg-slate-200/50 p-1.5 rounded-full neo-in max-w-sm">
           <button
             onClick={() => setActiveTab('catalog')}
-            className={`flex-1 py-2.5 px-4 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all ${
+            className={`flex-1 py-2 px-4 rounded-full text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all duration-300 ${
               activeTab === 'catalog' 
-                ? 'bg-sky-500 text-white shadow-md' 
-                : 'text-slate-600 hover:text-slate-800'
+                ? 'bg-sky-500 text-white shadow-[0_6px_12px_rgba(56,189,248,0.4),inset_0_3px_5px_rgba(255,255,255,0.45),inset_0_-3px_5px_rgba(0,0,0,0.15)] font-black' 
+                : 'text-slate-500 hover:text-slate-700'
             }`}
           >
             <Grid className="w-4 h-4" />
@@ -269,10 +269,10 @@ export default function App() {
           
           <button
             onClick={() => setActiveTab('custom')}
-            className={`flex-1 py-2.5 px-4 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all ${
+            className={`flex-1 py-2 px-4 rounded-full text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all duration-300 ${
               activeTab === 'custom' 
-                ? 'bg-orange-500 text-white shadow-md' 
-                : 'text-slate-600 hover:text-slate-800'
+                ? 'bg-orange-500 text-white shadow-[0_6px_12px_rgba(249,115,22,0.4),inset_0_3px_5px_rgba(255,255,255,0.45),inset_0_-3px_5px_rgba(0,0,0,0.15)] font-black' 
+                : 'text-slate-500 hover:text-slate-700'
             }`}
           >
             <Palette className="w-4 h-4" />
